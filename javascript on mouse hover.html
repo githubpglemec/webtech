@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Image Description Change</title>
+    <style>
+        #imageContainer {
+            text-align: center;
+        }
+
+        #imageDescription {
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="imageContainer">
+        <img src="/images/01.png" alt="Image" id="mainImage" onmouseover="changeDescription('New Description on Hover')"
+            onmouseout="resetDescription()" />
+        <p id="imageDescription">Original Image Description</p>
+    </div>
+
+    <script>
+        function changeDescription(newDescription) {
+            document.getElementById('imageDescription').innerHTML = newDescription;
+        }
+
+        function resetDescription() {
+            document.getElementById('imageDescription').innerHTML = 'Original Image Description';
+        }
+    </script>
+
+</body>
+
+</html>

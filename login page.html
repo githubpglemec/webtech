@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>User Login</h1>
+
+    <form id="loginForm" onsubmit="return validateForm()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <span id="error-message" class="error"></span>
+        <br>
+
+        <input type="submit" value="Login">
+    </form>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Validate username not empty
+            if (username.trim() === '') {
+                document.getElementById('error-message').innerHTML = 'Username cannot be empty.';
+                return false;
+            }
+
+            // Validate password starts with capital letter and ends with $
+            if (!/^[A-Z].*\$$/.test(password)) {
+                document.getElementById('error-message').innerHTML = 'Password must start with a capital letter and end with $.';
+                return false;
+            }
+
+            // Clear error message if validation passes
+            document.getElementById('error-message').innerHTML = '';
+
+            // You can add additional checks or actions here if needed
+
+            return true; // Submit the form if all validations pass
+        }
+    </script>
+
+</body>
+
+</html>
